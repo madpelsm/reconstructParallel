@@ -4,11 +4,13 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <algorithm>
+
 void run_deconstruct(double _start, double _end) {
     printf("Running between %f and %f\n", _start, _end);
-    std::string terminal_string = "reconstructPar -time " +
+    std::string terminal_string = "gnome-terminal -e 'reconstructPar -time " +
                                   std::to_string(_start) + ":" +
-                                  std::to_string(_end);
+                                  std::to_string(_end)+"'";
     printf("Passing to the terminal: \n%s \n.............\n",
            terminal_string.c_str());
         std::system(terminal_string.c_str());
@@ -42,19 +44,12 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::thread> threads;
 
-    printf("prepping threads\n");
+    printf("starting threads\n");
     for (size_t k = 0; k < number_of_cores; k++) {
         double t1 = parameters["start"] + k * interval;
         double t2 = t1 + interval;
-        run_deconstruct(t1, t2);
         threads.push_back(std::thread(run_deconstruct, t1, t2));
     }
-
-    printf("starting threads\n");
-    for (size_t i = 0; i < threads.size(); i++) {
-        threads[i].join();
-    }
-    printf("all threads finished");
 
     return 0;
 }
