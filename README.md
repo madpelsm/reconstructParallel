@@ -1,4 +1,4 @@
-<h1>What></h1>
+<h1>What</h1>
 It parallelises the reconstruction after having done a parallelised openfoam calculation
 <h1>How</h1>
 This is best shown with an exameple: reconstructParallel n=5 start=0 end=100
