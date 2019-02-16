@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/Mathias/Documents/github/multiThreadedReconstruct/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -I/Users/Mathias/Documents/github/multiThreadedReconstruct   -pthread -std=c++14 -O3 -march=native   -o CMakeFiles/reconstructParallel.dir/src/main.cpp.o -c /Users/Mathias/Documents/github/multiThreadedReconstruct/src/main.cpp",
+  "file": "/Users/Mathias/Documents/github/multiThreadedReconstruct/src/main.cpp"
+}
+]

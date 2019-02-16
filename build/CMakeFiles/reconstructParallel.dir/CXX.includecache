@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Mathias/Documents/github/multiThreadedReconstruct/src/main.cpp
+stdio.h
+-
+stdlib.h
+-
+map
+-
+string
+-
+thread
+-
+vector
+-
+
