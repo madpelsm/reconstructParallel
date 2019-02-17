@@ -24,6 +24,7 @@ void setParameter(std::string input,
         validCommands.end()) {
         parameters->insert(std::pair<std::string, double>(param, argument));
     }
+
     if (param == "help") {
         printf("n \t number of cores\n start\t start time\n end\t end time\n");
     }
