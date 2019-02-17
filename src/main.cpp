@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <algorithm>
 #include <map>
 #include <string>
 #include <thread>
 #include <vector>
-#include <algorithm>
 
 void run_deconstruct(double _start, double _end) {
     printf("Running between %f and %f\n", _start, _end);
     std::string terminal_string = "gnome-terminal -e 'reconstructPar -time " +
                                   std::to_string(_start) + ":" +
-                                  std::to_string(_end)+"'";
+                                  std::to_string(_end) + "'";
     printf("Passing to the terminal: \n%s \n.............\n",
            terminal_string.c_str());
-        std::system(terminal_string.c_str());
+    std::system(terminal_string.c_str());
 }
 void setParameter(std::string input,
                   std::map<std::string, double>* parameters) {
@@ -49,6 +49,10 @@ int main(int argc, char* argv[]) {
         double t1 = parameters["start"] + k * interval;
         double t2 = t1 + interval;
         threads.push_back(std::thread(run_deconstruct, t1, t2));
+    }
+
+    for (size_t i = 0; i < number_of_cores; i++) {
+        threads[i].join();
     }
 
     return 0;
